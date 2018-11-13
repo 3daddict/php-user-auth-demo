@@ -22,3 +22,15 @@ function addBook($title, $description){
         throw $e;
     }
 }
+
+function getAllBooks(){
+    global $db;
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll();
+    try {
+        $query = 'SECLECT * FROM books';
+    } catch (\Exception $e) {
+        throw $e;
+    }
+}
